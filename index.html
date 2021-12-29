@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style>
+            .heading_div
+              {
+                 background-color: orange; 
+                 border-radius: 10px;
+                 text-align: center;
+                 width: 100%;
+              }
+            #note
+              {
+                 font-size: 15px;
+              }
+            #heading_div_h2
+             {
+                color: white;
+                font-size: 26px;
+             }
+            #heading_div_h2_font_size
+             {
+                color: white;
+             }
+             .copyright_footer
+             {
+                 width: 100%;                                         
+                 background-color: gray;
+                 height: 30px;
+                 font-size: 15px;
+                 color: white;
+                 text-align: center;
+                 padding-top: 10px;
+                 margin-top: 579px;
+             }
+             canvas
+             {
+                 background-color: rgb(29, 255, 255);
+                 border: black;
+                 border-radius: 10px;
+                 box-shadow: 5px 5px 5px gray;
+                 padding: 10px;
+                 margin: auto;
+             }
+        </style>
+        <script>
+function setup(){
+    video = createCapture(VIDEO);
+    video.size(400,400);
+    video.position(10,50);
+
+    canvas = createCanvas(800,400);
+    canvas.position(430,130);
+
+    poseNet = ml5.poseNet(video,modelLoaded);
+    poseNet.on('pose',gotposes);
+}
+
+function modelLoaded()
+{
+    console.log("PoseNet Is Initialized And Loaded");
+}
+
+function gotposes(results,error)
+{
+    if(results.length > 0)
+    {
+        console.log(results);f
+    }
+}    
+        </script>
+    </head>
+    <body background="background.jpeg">
+        <div class="heading_div">
+            <h2 id="heading_div_h2">FONT MANIPULATOR</h2>
+            <h4 id="note">NOTE - get your left and right wrist closer to eachother to reduce the font size and to increse the font size keep your left and right wrist far from each other</h4>
+            <h2 id="heading_div_h2_font_size">Font size of the text will be =   px</h2>
+        </div>
+        <h4 class="copyright_footer">Developed by - WhitehatJr Team</h4>
+    </body>
+</html>
